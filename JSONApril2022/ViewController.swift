@@ -14,6 +14,19 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func downloadButton(_ sender: UIButton) {
+        
+        if let url = URL(string: "https://jsonplaceholder.typicode.com/posts") {
+            URLSession.shared.dataTask(with: url) { data, response, error in
+               
+                if error != nil {
+                    print("error in requst")
+                } else {
+                    print(response)
+                }
+           
+            }
+            .resume()
+        }
+    }
 }
-
